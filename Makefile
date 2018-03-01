@@ -59,17 +59,7 @@ Enclave_Link_Flags := $(SGX_COMMON_CFLAGS) -Wl,--no-undefined -nostdlib -nodefau
 	-Wl,--defsym,__ImageBase=0
 
 .PHONY: all
-ifeq ($(SGX_PROFILE), RELEASE)
-all: app enclave.so
-	@echo "The project has been built in release hardware mode."
-	@echo "Please sign the enclave.so first with your signing key before you run the app to launch and access the enclave."
-	@echo "To sign the enclave use the command:"
-	@echo "   $(SGX_ENCLAVE_SIGNER) sign -key <your key> -enclave enclave.so -out enclave.signed.so -config enclave.config.xml"
-	@echo "You can also sign the enclave using an external signing tool. See User's Guide for more details."
-	@echo "To build the project in simulation mode set SGX_MODE=SIM. To build the project in prerelease mode set SGX_PRERELEASE=1 and SGX_MODE=HW."
-else
 all: app enclave.signed.so
-endif
 
 enclave_t.h enclave_t.c enclave_u.h enclave_u.c: $(SGX_EDGER8R) enclave.edl
 	$(SGX_EDGER8R) enclave.edl

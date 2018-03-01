@@ -4,16 +4,17 @@ This is a minimal hello world-like sample program for Intel Software Guard
 Extensions.
 It consists of an untrusted app and a trusted enclave.
 The app passes two integers to the enclave which then computes their sum and
-returns to the app.
+returns it to the app.
+This code is based on digawp's [hello-enclave](https://github.com/digawp/hello-enclave)
 
 # Prerequisites
 
-To compile and run, you need to have:
-* A Linux system. (Sorry, Windows is not supported, because real developers
-  don't use Windows.)
-* An Intel CPU supporting SGX.
+To compile and run, you need:
+* A Linux system. Sorry. Windows is not supported, because real developers
+  don't use Windows :)
 * Intel SGX SDK (for compiling)
 * Intel SGX PSW and Intel SGX Driver (for running)
+* An Intel CPU supporting SGX (for running).
 
 # How to compile
 
@@ -22,4 +23,4 @@ To compile and run, you need to have:
 
 # How to run
 
-1. `./app`
+run `./app`. You should see "Succeed: 8 + 17 = 25!"
