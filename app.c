@@ -35,6 +35,7 @@ static int do_init ()
 
 	if (launch_token_updated)
 		load_save_launch_token("enclave.token", &launch_token, 1);
+	return 0;
 }
 
 static void do_compute ()
